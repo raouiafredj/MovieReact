@@ -3,7 +3,8 @@ import ReactDom from 'react-dom';
 import './MovieApp.css';
 import NameFilter from './NameFilter';
 import RatingFilter from './RatingFilter';
-import MovieList from './MovieList'
+import MovieList from './MovieList';
+import Test from './Test';
 const inception ={
   id:'inception',
     title :'merveilleux',
