@@ -1,19 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
+import {Provider} from 'react-redux'
+
 import './App.css';
 import './Components/MovieApp';
 import MovieApp from './Components/MovieApp';
 import Test from './Components/Test';
+import './reducers/ratingFilter';
+import './reducers/titleFilter';
+import movieAppStore from './store';
+import MoviesApp from './Components/MoviesApp';
 
 
 function App() {
   
   return (
-    <div>
+    <Provider store={movieAppStore}>
          {/* <MovieApp/> */}
-         <Test/>
+         {/* <Test/> */}
 
-    </div>
+           <MoviesApp/>
+
+    </Provider>
     
   );
 }

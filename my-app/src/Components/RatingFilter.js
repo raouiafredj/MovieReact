@@ -1,11 +1,9 @@
-import React from 'react';
-import ReactDom from 'react-dom';
-import './MovieApp.css';
-import Rating from './Rating';
+import React from 'react'
+import Rating from './Rating'
+import {connect} from 'react-redux'
 
-const RatingFilter = ({onChange ,count}) =>(
-
-<div className="rating-filter">
+const RatingFilter = ({onChange = () => {}, count = 0}) => (
+    <div className="rating-filter">
         <span className="rating-filter-text">Minimum rating</span>
         <Rating
             count={count}
@@ -13,9 +11,26 @@ const RatingFilter = ({onChange ,count}) =>(
                 onChange(newRating)
             }} />
       </div>
+)
 
+const mapStateToProps = state => {
+    return {
+        count: state.minRatingFilter
+    }
+}
 
+const mapDispatchToProps = dispatch => {
+    return {
+        onChange: (newRating) => {
+            dispatch({
+                type: 'SET_RATING_FILTER',
+                rating: newRating
+            })
+        }
+    }
+}
 
+const RatingFilterContainer = 
+    connect(mapStateToProps, mapDispatchToProps)(RatingFilter)
 
-);
-export default RatingFilter;
+export default RatingFilterContainer

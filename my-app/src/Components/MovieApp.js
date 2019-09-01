@@ -1,7 +1,7 @@
 import React, {Component}from 'react';
 import ReactDom from 'react-dom';
 import './MovieApp.css';
-import NameFilter from './NameFilter';
+import TitleFilter from './TitleFilter';
 import RatingFilter from './RatingFilter';
 import MovieList from './MovieList';
 import Test from './Test';
@@ -51,7 +51,7 @@ class MovieApp extends Component {
     return (
       <div className="movie-app">
         <header className="movie-app-header">
-        <NameFilter value={this.state.titleFilter}
+        <TitleFilter value={this.state.titleFilter}
         
         onChange={(newTitleFilter) => {
           this.setState({
